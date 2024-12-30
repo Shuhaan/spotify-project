@@ -21,13 +21,14 @@ TEST_DIR := tests
 ## Create python interpreter environment.
 create-environment:
 	@echo ">>> About to create environment: $(PROJECT_NAME)..."
-	@echo ">>> check python version"
+	@echo ">>> check python3 version"
 	( \
 		$(PYTHON_INTERPRETER) --version; \
 	)
-	@echo ">>> Setting up virtual environment."
+	@echo ">>> Setting up VirtualEnv."
 	( \
-		$(PYTHON_INTERPRETER) -m venv venv; \
+	    $(PIP) install -q virtualenv virtualenvwrapper; \
+	    virtualenv venv --python=$(PYTHON_INTERPRETER); \
 	)
 
 # Define utility variable to help calling Python from the virtual environment
