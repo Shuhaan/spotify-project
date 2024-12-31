@@ -1,4 +1,4 @@
-name: de-project-onyx
+name: project-spotify
 
 on:
   pull_request:
@@ -19,7 +19,7 @@ jobs:
         with:
           python-version: '3.13'
 
-      - name: Set up Safety
+      - name: Safety Scan the dependencies
         uses: pyupio/safety-action@v1
         with:
           api-key: ${{ secrets.SAFETY_API_KEY }}
